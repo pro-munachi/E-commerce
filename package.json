@@ -1,6 +1,16 @@
 {
   "dependencies": {
+    "express": "^4.17.1",
     "react-router-bootstrap": "^0.25.0",
     "react-router-dom": "^5.2.0"
-  }
+  },
+  "name": "e-commerce",
+  "version": "1.0.0",
+  "description": "MERN shopping cart app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "author": "madu munachi <madustanley1@gmail.com>",
+  "license": "MIT"
 }
