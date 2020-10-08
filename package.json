@@ -18,7 +18,9 @@
     "start": "node backend/server",
     "server": "nodemon backend/server",
     "client": "cd frontend && yarn start",
-    "dev": "concurrently --kill-others-on-fail \"yarn run server\" \"yarn run client\""
+    "dev": "concurrently --kill-others-on-fail \"yarn run server\" \"yarn run client\"",
+    "data:import": "node backend/seeder",
+    "data:destroy": "node backend/seeder -d"
   },
   "author": "madu munachi <madustanley1@gmail.com>",
   "license": "MIT"
