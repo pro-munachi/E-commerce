@@ -13,14 +13,11 @@ const OrderScreen = ({ match }) => {
   const cart = useSelector(state => state.cart)
 
   const orderDetails = useSelector(state => state.orderDetails)
-  const { order, success, error } = orderDetails
+  const { order, loading, error } = orderDetails
 
   useEffect(() => {
-    if (success) {
-      history.push(`/order/${order._id}`)
-    }
-    // eslint-disable-next-line
-  }, [history, success])
+  dispatch(getOrderDetails(orderId))
+  }, [])
 
   const placeOrderHandler = () => {
     dispatch(
