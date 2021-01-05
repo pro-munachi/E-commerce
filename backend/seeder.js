@@ -6,6 +6,7 @@ const products = require('./data/products')
 const User = require('./models/userModel')
 const Product = require('./models/productModel')
 const Order = require('./models/orderModel')
+const Category = require('./models/categoryModel')
 const connectDB = require('./config/db')
 
 dotenv.config()
@@ -17,6 +18,7 @@ const importData = async () => {
     await Order.deleteMany()
     await Product.deleteMany()
     await User.deleteMany()
+    await Category.deleteMany()
 
     const createdUsers = await User.insertMany(users)
 
@@ -40,6 +42,7 @@ const destroyData = async () => {
     await Order.deleteMany()
     await Product.deleteMany()
     await User.deleteMany()
+    await Category.deleteMany()
 
     console.log('Data Destroyed!'.red.inverse)
     process.exit
