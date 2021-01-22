@@ -86,38 +86,40 @@ const OrderScreen = ({ match }) => {
     <Message variant='danger'>{error}</Message>
   ) : (
     <>
-      <h1>ORDER {order._id}</h1>
+      <h1 style={{ color: '#0f3959' }}>ORDER {order._id}</h1>
       <Row>
         <Col md={8}>
           <ListGroup variant='flush'>
             <ListGroup.Item>
-              <h2>Shippping</h2>
+              <h2 style={{ color: '#0f3959' }}>Shippping</h2>
               <p>
                 <strong>Name: </strong> {order.user.name}
               </p>
               <p>
-                <strong>Email: </strong>{' '}
+                <strong style={{ color: '#0f3959' }}>Email: </strong>{' '}
                 <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
               </p>
               <p>
-                <strong>Address:</strong>
+                <strong style={{ color: '#0f3959' }}>Address:</strong>
                 {order.shippingAddress.address}, {order.shippingAddress.city}{' '}
                 {order.shippingAddress.postalCode},
                 {order.shippingAddress.country}
               </p>
               {order.isDelivered ? (
-                <Message variant='success'>
+                <Message variant='success' style={{ color: '#0f3959' }}>
                   Delivered on {order.deliveredAt}
                 </Message>
               ) : (
-                <Message variant='danger'>Not Delivered</Message>
+                <Message variant='danger' style={{ color: '#0f3959' }}>
+                  Not Delivered
+                </Message>
               )}
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Payment Method</h2>
+              <h2 style={{ color: '#0f3959' }}>Payment Method</h2>
               <p>
-                <strong>Method: </strong>
+                <strong style={{ color: '#0f3959' }}>Method: </strong>
                 {order.paymentMethod}
               </p>
               {order.isPaid ? (
@@ -127,7 +129,7 @@ const OrderScreen = ({ match }) => {
               )}
             </ListGroup.Item>
 
-            <ListGroup.Item>
+            <ListGroup.Item style={{ color: '#0f3959' }}>
               <h2>Order Items</h2>
               {order.orderItems.length === 0 ? (
                 <Message>Order is empty</Message>
@@ -166,7 +168,7 @@ const OrderScreen = ({ match }) => {
           <Card>
             <ListGroup variant='flush'>
               <ListGroup.Item>
-                <h2>Order Summary</h2>
+                <h2 style={{ color: '#0f3959' }}>Order Summary</h2>
               </ListGroup.Item>
 
               <ListGroup.Item>
@@ -181,7 +183,7 @@ const OrderScreen = ({ match }) => {
 
               <ListGroup.Item>
                 <Row>
-                  <Col>Shippping</Col>
+                  <Col style={{ color: '#0f3959' }}>Shippping</Col>
                   <Col>
                     <span>&#8358;</span>
                     {order.shippingPrice}
@@ -191,7 +193,7 @@ const OrderScreen = ({ match }) => {
 
               <ListGroup.Item>
                 <Row>
-                  <Col>Tax</Col>
+                  <Col style={{ color: '#0f3959' }}>Tax</Col>
                   <Col>
                     <span>&#8358;</span>
                     {order.taxPrice}
@@ -201,7 +203,7 @@ const OrderScreen = ({ match }) => {
 
               <ListGroup.Item>
                 <Row>
-                  <Col>Total</Col>
+                  <Col style={{ color: '#0f3959' }}>Total</Col>
                   <Col>
                     <span>&#8358;</span>
                     {order.totalPrice}
@@ -228,6 +230,7 @@ const OrderScreen = ({ match }) => {
                     type='button'
                     className='btn btn-block'
                     onClick={deliverHandler}
+                    style={{ color: '#0f3959' }}
                   >
                     Mark As Delivered
                   </Button>

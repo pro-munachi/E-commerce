@@ -18,7 +18,12 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg='#0f3959' variant='dark' expand='lg' collapseOnSelect>
+      <Navbar
+        variant='dark'
+        expand='lg'
+        collapseOnSelect
+        style={{ background: '#0f3959' }}
+      >
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>Muna Shop</Navbar.Brand>
