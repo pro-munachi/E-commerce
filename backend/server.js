@@ -4,6 +4,7 @@ const dotenv = require('dotenv')
 const connectDB = require('./config/db')
 const morgan = require('morgan')
 const colors = require('colors')
+const fs = require('fs')
 const { notFound, errorHandler } = require('./middleware/errorMiddleware')
 
 const productRoutes = require('./routes/productRoutes')
@@ -32,6 +33,8 @@ app.get('api/config/paypal', (req, res) =>
   res.send(process.env.PAYPAL_CLIENT_ID)
 )
 
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '/frontend/build')))
 
@@ -43,8 +46,6 @@ if (process.env.NODE_ENV === 'production') {
     res.send('API is running...')
   })
 }
-
-app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
 app.use(notFound)
 app.use(errorHandler)
