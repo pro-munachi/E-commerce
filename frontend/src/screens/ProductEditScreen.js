@@ -97,7 +97,7 @@ const ProductEditScreen = ({ match, history }) => {
         Go Back
       </Link>
       <FormContainer>
-        <h1>Edit Product</h1>
+        <h1 style={{ color: '#0f3959' }}>Edit Product</h1>
         {loadingUpdate && <Loader />}
         {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
         {loading ? (
