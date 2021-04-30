@@ -29,21 +29,22 @@ app.use('/api/users', userRoutes)
 app.use('/api/orders', orderRoutes)
 app.use('/api/upload', uploadRoutes)
 
-app.get('api/config/paypal', (req, res) =>
+app.get('/api/config/paypal', (req, res) =>
   res.send(process.env.PAYPAL_CLIENT_ID)
 )
 
-app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
+const __dirnam = path.resolve()
+app.use('/uploads', express.static(path.join(__dirnam, '/uploads')))
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '/frontend/build')))
+  app.use(express.static(path.join(__dirnam, '/frontend/build')))
 
   app.get('*', (req, res) =>
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+    res.sendFile(path.resolve(__dirnam, 'frontend', 'build', 'index.html'))
   )
 } else {
   app.get('/', (req, res) => {
-    res.send('API is running...')
+    res.send('API is running....')
   })
 }
 
@@ -55,6 +56,6 @@ const PORT = process.env.PORT || 5000
 app.listen(
   PORT,
   console.log(
-    `Server running ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
   )
 )
